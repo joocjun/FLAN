@@ -182,7 +182,7 @@ def _process_wsc(example):
 
 TASK_CONFIGS['wsc'] = _TaskConfig(
     source=seqio.TfdsDataSource(
-        tfds_name='super_glue/wsc:1.0.2',
+        tfds_name='super_glue/wsc:1.1.0',
         splits=WSC_SPLITS_DICT,
     ),
     preprocessors=[
@@ -217,7 +217,7 @@ def _process_wsc273(example):
 
 TASK_CONFIGS['wsc273'] = _TaskConfig(
     source=seqio.TfdsDataSource(
-        tfds_name='wsc273:1.0.0',  # Only the test split is available.
+        tfds_name='wsc273:1.1.0',  # Only the test split is available.
     ),
     preprocessors=[
         _process_wsc273,

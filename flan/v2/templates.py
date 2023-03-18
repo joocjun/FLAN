@@ -984,6 +984,84 @@ PATTERNS = {
         ("Generate a context and a hypothesis.",
          "Context: {context}\n\nHypothesis: {hypothesis}"),
     ],
+        "anli_r1": [
+        ("{context}\n\nChoose your answer: based on the paragraph above can we"
+         " conclude that \"{hypothesis}\"?\n\n{options_}\nI think the answer "
+         "is", "{answer}"),
+        ("{context}\n\nBased on that paragraph can we conclude that this "
+         "sentence is true?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\n\nCan we draw the following "
+         "conclusion?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\nDoes this next sentence follow, given the preceding "
+         "text?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\nCan we infer the "
+         "following?\n{hypothesis}\n\n{options_}\nThe answer is:", "{answer}"),
+        ("Read the following paragraph and determine if the hypothesis is "
+         "true:\n\n{context}\n\n{options_}\nHypothesis: {hypothesis}\n\n\n",
+         "{answer}"),
+        ("Read the text and determine if the sentence is true (see options at "
+         "the end):\n\n{context}\n\nSentence: {hypothesis}\n{options_}",
+         "{answer}"),
+        ("Can we draw the following hypothesis from the context (see options)?"
+         " \n\nContext:\n\n{context}\n\nHypothesis: {hypothesis}\n{options_}",
+         "{answer}"),
+        ("Choose from options: Determine if the sentence is true based on the "
+         "text below:\n{hypothesis}\n\n{context}\n{options_}", "{answer}"),
+        ("Generate a context and a hypothesis.",
+         "Context: {context}\n\nHypothesis: {hypothesis}"),
+    ],
+        "anli_r2": [
+        ("{context}\n\nChoose your answer: based on the paragraph above can we"
+         " conclude that \"{hypothesis}\"?\n\n{options_}\nI think the answer "
+         "is", "{answer}"),
+        ("{context}\n\nBased on that paragraph can we conclude that this "
+         "sentence is true?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\n\nCan we draw the following "
+         "conclusion?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\nDoes this next sentence follow, given the preceding "
+         "text?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\nCan we infer the "
+         "following?\n{hypothesis}\n\n{options_}\nThe answer is:", "{answer}"),
+        ("Read the following paragraph and determine if the hypothesis is "
+         "true:\n\n{context}\n\n{options_}\nHypothesis: {hypothesis}\n\n\n",
+         "{answer}"),
+        ("Read the text and determine if the sentence is true (see options at "
+         "the end):\n\n{context}\n\nSentence: {hypothesis}\n{options_}",
+         "{answer}"),
+        ("Can we draw the following hypothesis from the context (see options)?"
+         " \n\nContext:\n\n{context}\n\nHypothesis: {hypothesis}\n{options_}",
+         "{answer}"),
+        ("Choose from options: Determine if the sentence is true based on the "
+         "text below:\n{hypothesis}\n\n{context}\n{options_}", "{answer}"),
+        ("Generate a context and a hypothesis.",
+         "Context: {context}\n\nHypothesis: {hypothesis}"),
+    ],
+        "anli_r3": [
+        ("{context}\n\nChoose your answer: based on the paragraph above can we"
+         " conclude that \"{hypothesis}\"?\n\n{options_}\nI think the answer "
+         "is", "{answer}"),
+        ("{context}\n\nBased on that paragraph can we conclude that this "
+         "sentence is true?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\n\nCan we draw the following "
+         "conclusion?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\nDoes this next sentence follow, given the preceding "
+         "text?\n{hypothesis}\n\n{options_}", "{answer}"),
+        ("{context}\nCan we infer the "
+         "following?\n{hypothesis}\n\n{options_}\nThe answer is:", "{answer}"),
+        ("Read the following paragraph and determine if the hypothesis is "
+         "true:\n\n{context}\n\n{options_}\nHypothesis: {hypothesis}\n\n\n",
+         "{answer}"),
+        ("Read the text and determine if the sentence is true (see options at "
+         "the end):\n\n{context}\n\nSentence: {hypothesis}\n{options_}",
+         "{answer}"),
+        ("Can we draw the following hypothesis from the context (see options)?"
+         " \n\nContext:\n\n{context}\n\nHypothesis: {hypothesis}\n{options_}",
+         "{answer}"),
+        ("Choose from options: Determine if the sentence is true based on the "
+         "text below:\n{hypothesis}\n\n{context}\n{options_}", "{answer}"),
+        ("Generate a context and a hypothesis.",
+         "Context: {context}\n\nHypothesis: {hypothesis}"),
+    ],
     # Not in FLAN Templates (flan_templates):
     "synth_cot_anli": [
         ("{premise}\n\nBased on the paragraph above can we"

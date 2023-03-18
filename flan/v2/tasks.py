@@ -56,9 +56,9 @@ def register_zero_shot_task(zero_shot_name: str,
 for t_name, config in task_configs.ALL_CANDIDATE_TASK_CONFIGS.items():
   flan_pattern_name = utils.t_name_to_flan_pattern_name(t_name)
   patterns_list = templates.PATTERNS[flan_pattern_name]
-
-  selected_patterns = patterns_list[0:1]
-  zero_shot_task_name = f"{t_name}_template_0_zero_shot"
+  IDX = 9
+  selected_patterns = patterns_list[IDX:IDX+1]
+  zero_shot_task_name = f"{t_name}_template_{IDX}_zero_shot"
   register_zero_shot_task(zero_shot_task_name, config, selected_patterns, "zs_opt")
 
   selected_patterns = patterns_list
