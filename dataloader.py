@@ -29,4 +29,4 @@ DATA_RAT = {
     "misc":["quac","cola","math_dataset"],
 }
 
-DIALOG_DATA = {"dialog":['wiki_dialog', 'qrecc']}
+DIALOG_DATA = {"dialog":['wiki_dialog',"wiki_dialog_input_inversion",'qrecc',"qrecc_input_inversion","task_master","task_master_input_inversion"]} #, 

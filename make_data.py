@@ -7,7 +7,7 @@ size = 1000
 
 DIR = "/home/ubuntu/LKLab-storage-texas/sejune"
 
-for category,tasks in tqdm(DATA_RAT.items()):
+for category,tasks in tqdm(DIALOG_DATA.items()):
     data_dict = {}
     for task in tasks:
         task_dict = {}

@@ -2,7 +2,9 @@ import json
 import os
 from datasets import load_dataset
 from flan.v2.templates import PATTERNS
-
+import pandas as pd
+import tensorflow as tf
+import random
 DATA_DIR = "/home/ubuntu/LKLab-storage-texas/sejune"
 # DATA_DIR = "."
 
@@ -82,6 +84,63 @@ def save_definite():
         with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
             json.dump(result,f,indent=4)
 
-save_definite()
-save_aeslc()
-save_windogrande()
+# save_definite()
+# save_aeslc()
+# save_windogrande()
+
+
+
+def task_master(): 
+    data_name = "task_master"
+    with open("/home/sejune/Taskmaster/TM-1-2019/self-dialogs.json","r") as f:
+        data = json.load(f)
+
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            # options = f"[Options]\n-{_data['candidates'][0]}\n-{_data['candidates'][1]}"
+            utt = _data['utterances']
+            utt_idx = random.randint(1,min(len(utt)-1,20))
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(dialog_="\n".join([utt[i]['text'] for i in range(utt_idx)])),
+            "target" : target.format(answer= utt[utt_idx]['text']),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+
+def task_master_inversion(): 
+    data_name = "task_master_input_inversion"
+    with open("/home/sejune/Taskmaster/TM-1-2019/self-dialogs.json","r") as f:
+        data = json.load(f)
+
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            # options = f"[Options]\n-{_data['candidates'][0]}\n-{_data['candidates'][1]}"
+            utt = _data['utterances']
+            utt_idx = random.randint(1,min(len(utt)-1,20))
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(answer= utt[utt_idx]['text']),
+            "target" : target.format(dialog_="\n".join([utt[i]['text'] for i in range(utt_idx)])),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+
+task_master()
+task_master_inversion()
