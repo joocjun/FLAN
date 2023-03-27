@@ -3,7 +3,7 @@ from utils import *
 import json
 from dataloader import *
 from tqdm import tqdm
-size = 1000
+size = 300
 
 DIR = "/home/ubuntu/LKLab-storage-texas/sejune"
 

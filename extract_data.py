@@ -4,7 +4,7 @@ import seqio
 from dataloader import *
 from seqio import TaskRegistry
 from utils import *
-IDX = 0
+IDX = 9
 from tqdm import tqdm
 import random
 
