@@ -30,3 +30,5 @@ DATA_RAT = {
 }
 
 DIALOG_DATA = {"dialog":['qrecc',"qrecc_input_inversion",'wiki_dialog',"wiki_dialog_input_inversion","task_master","task_master_input_inversion"]} #, 
+
+CODE_DATA = {"code":["program_synthesis_dr_repair","program_synthesis_dr_repair_error_comments","program_synthesis_dr_repair_input_inversion","program_synthesis_dmcc_python","program_synthesis_dmcc_python_input_inversion"]}

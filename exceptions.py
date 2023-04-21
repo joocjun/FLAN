@@ -1,13 +1,13 @@
 import json 
 import os
-from datasets import load_dataset
+# from datasets import load_dataset
 from flan.v2.templates import PATTERNS
 import pandas as pd
 import tensorflow as tf
 import random
 DATA_DIR = "/home/ubuntu/LKLab-storage-texas/sejune"
 # DATA_DIR = "."
-
+import random
 
 def save_aeslc():
     data = load_dataset("aeslc",split="train")
@@ -142,5 +142,130 @@ def task_master_inversion():
             json.dump(result,f,indent=4)
 
 
-task_master()
-task_master_inversion()
+# task_master()
+# task_master_inversion()
+
+
+def dr_repair():
+    data_name = "program_synthesis_dr_repair"
+    # data = load_dataset("dr_repair",split="train")
+    with open("/home/ubuntu/LKLab-storage-texas/sejune/code_data/dr_repair/train.json","r") as f:
+        data = json.load(f)
+    data = data[:1000]
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(question=_data['mod_code']),
+            "target" : target.format(answer=_data['code']),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+def dr_repair_comment():
+    data_name = "program_synthesis_dr_repair_error_comments"
+    # data = load_dataset("dr_repair",split="train")
+    with open("/home/ubuntu/LKLab-storage-texas/sejune/code_data/dr_repair/train.json","r") as f:
+        data = json.load(f)
+    data = data[:1000]
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(question=_data['err_msg']),
+            "target" : target.format(answer=_data['code']),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+def dr_repair_inver():
+    data_name = "program_synthesis_dr_repair_input_inversion"
+    with open("/home/ubuntu/LKLab-storage-texas/sejune/code_data/dr_repair/train.json","r") as f:
+        data = json.load(f)
+    data = data[:1000]
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(answer=_data['code']),
+            "target" : target.format(question=_data['mod_code']),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+
+def dmcc():
+    data_name = "program_synthesis_dmcc_python"
+    with open("/home/ubuntu/LKLab-storage-texas/sejune/code_data/dmcc/train.json","r") as f:
+        data = json.load(f)
+    data = random.sample(data,1000)
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(question=_data['question']),
+            "target" : target.format(answer=_data['answer']),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+def dmcc_inver():
+    data_name = "program_synthesis_dmcc_python_input_inversion"
+    with open("/home/ubuntu/LKLab-storage-texas/sejune/code_data/dmcc/train.json","r") as f:
+        data = json.load(f)
+    data = random.sample(data,1000)
+    for idx in range(10):
+        result = []
+        temp = PATTERNS[data_name][idx]
+        source = temp[0]
+        target = temp[1]
+        for _data in data:
+            e_formatted_d = {
+            "config" : "none",
+            "task" : data_name,
+            "prompt" : str(idx),
+            "source" : source.format(answer=_data['answer']),
+            "target" : target.format(question=_data['question']),
+            }
+            result.append(e_formatted_d)
+        with open(f"{DATA_DIR}/dump/{idx}_{data_name}.json","w") as f:
+            json.dump(result,f,indent=4)
+
+# dr_repair()
+# print("dr_repair done")
+# dr_repair_comment()
+# print("dr_repair_comment done")
+# dr_repair_inver()
+# print("dr_repair_inver done")
+dmcc()
+print("dmcc done")
+dmcc_inver()
+print("dmcc_inver done")

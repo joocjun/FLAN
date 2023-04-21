@@ -2169,7 +2169,7 @@ PATTERNS = {
     "program_synthesis_dr_repair_input_inversion": [
         ("Fixed code: {answer}.\nMy broken code is below:\n", "{question}"),
         ("The fixed code:\n{answer}\nMy broken code is below:", "{question}"),
-        ("Fixed code:\n{answer}\nExample of incorrect code:", "{answer}"),
+        ("Fixed code:\n{answer}\nExample of incorrect code:", "{question}"),
         ("Correct version of the code:\n{answer}\n\nCode with error:",
          "{question}"),
         ("This is the solution code:\n{answer}\n\nWhich fixes this version:",
